@@ -1,28 +1,55 @@
 /* eslint-disable no-trailing-spaces */
 /* eslint-disable linebreak-style */
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   questions: [
-    { 
-      id: 1, questionText: 'Who set the Olympic record for the 100m dash in 2012?', options: ['Usain Bolt', 'Justin Gatlin', 'Tyson Gay', 'Asafa Powell'], correctAnswerIndex: 0 
+    {
+      id: 1,
+      imgUrl:
+        "https://content.active.com/Assets/Active.com+Content+Site+Digital+Assets/Article+Image+Update/Running/How+Far/Carousel.jpg",
+      questionText: "Who set the Olympic record for the 100m dash in 2012?",
+      options: ["Usain Bolt", "Justin Gatlin", "Tyson Gay", "Asafa Powell"],
+      correctAnswerIndex: 0,
+      answerText: "yes, he is fast!",
     },
-    { 
-      id: 2, questionText: 'When was Michael Phelps last named male World Swimmer of the Year?', options: ['2012', '2014', '2016', '2018'], correctAnswerIndex: 2 
-    }
+    {
+      id: 2,
+      questionText:
+        "When was Michael Phelps last named male World Swimmer of the Year?",
+      options: ["2012", "2014", "2016", "2018"],
+      correctAnswerIndex: 2,
+    },
+    {
+      id: 3,
+      questionText: "Pick the right Ryan? Who is Ryan Reynolds?",
+      options: ["Ryan1", "Ryan2", "Ryan3", "Ryan4"],
+      correctAnswerIndex: 2,
+    },
+    {
+      id: 4,
+      questionText: "Which one do you choose?",
+      options: ["Umbrella", "Square", "Triangle", "Cirle"],
+      correctAnswerIndex: 2,
+    },
+    {
+      id: 5,
+      questionText: "Which song is this?",
+      options: ["One", "Two", "Three", "Four"],
+      correctAnswerIndex: 2,
+    },
   ],
   answers: [],
   currentQuestionIndex: 0,
-  quizOver: false
-}
+  quizOver: false,
+};
 
 // Change these to your own questions!
 
 export const quiz = createSlice({
-  name: 'quiz',
+  name: "quiz",
   initialState,
   reducers: {
-
     /**
      * Use this action when a user selects an answer to the question.
      * The answer will be stored in the `quiz.answers` state with the
@@ -39,15 +66,19 @@ export const quiz = createSlice({
      * and `answerIndex` keys. See the readme for more details.
      */
     submitAnswer: (state, action) => {
-      const { questionId, answerIndex } = action.payload
-      const question = state.questions.find((q) => q.id === questionId)
+      const { questionId, answerIndex } = action.payload;
+      const question = state.questions.find((q) => q.id === questionId);
 
       if (!question) {
-        throw new Error('Could not find question! Check to make sure you are passing the question id correctly.')
+        throw new Error(
+          "Could not find question! Check to make sure you are passing the question id correctly."
+        );
       }
 
       if (question.options[answerIndex] === undefined) {
-        throw new Error(`You passed answerIndex ${answerIndex}, but it is not in the possible answers array!`)
+        throw new Error(
+          `You passed answerIndex ${answerIndex}, but it is not in the possible answers array!`
+        );
       }
 
       state.answers.push({
@@ -55,8 +86,8 @@ export const quiz = createSlice({
         answerIndex,
         question,
         answer: question.options[answerIndex],
-        isCorrect: question.correctAnswerIndex === answerIndex
-      })
+        isCorrect: question.correctAnswerIndex === answerIndex,
+      });
     },
 
     /**
@@ -68,9 +99,9 @@ export const quiz = createSlice({
      */
     goToNextQuestion: (state) => {
       if (state.currentQuestionIndex + 1 === state.questions.length) {
-        state.quizOver = true
+        state.quizOver = true;
       } else {
-        state.currentQuestionIndex += 1
+        state.currentQuestionIndex += 1;
       }
     },
 
@@ -82,8 +113,7 @@ export const quiz = createSlice({
      * This action does not require a payload.
      */
     restart: () => {
-      return initialState
-    }
-
-  }
-})
+      return initialState;
+    },
+  },
+});
