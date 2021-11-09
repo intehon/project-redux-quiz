@@ -17,7 +17,7 @@ const initialState = {
       id: 2,
       questionText:
         "When was Michael Phelps last named male World Swimmer of the Year?",
-      options: ["2012", "2014", "2016", "2018"],
+      options: ["2012", "2014", "2016", "2017"],
       correctAnswerIndex: 2,
     },
     {

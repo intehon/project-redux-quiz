@@ -6,11 +6,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { quiz } from "../reducers/quiz";
 
 export const CurrentQuestion = () => {
+  const dispatch = useDispatch();
   const question = useSelector(
     (store) => store.quiz.questions[store.quiz.currentQuestionIndex]
   );
-
-  const dispatch = useDispatch();
+  const answers = useSelector((store) => store.quiz.answers);
 
   const quizSlice = useSelector((store) => store);
   console.log("slices", quizSlice);
@@ -30,15 +30,17 @@ export const CurrentQuestion = () => {
       {question.options.map((answer, index) => (
         <button
           key={answer}
+          disabled={answers.length === question.id}
           onClick={(answer) => onAnswerSubmit(question.id, index)}
         >
           {answer}
         </button>
       ))}
-
-      <button onClick={() => dispatch(quiz.actions.goToNextQuestion())}>
-        Go to next Question
-      </button>
+      {answers.length === question.id && (
+        <button onClick={() => dispatch(quiz.actions.goToNextQuestion())}>
+          Go to next Question
+        </button>
+      )}
     </div>
   );
 };
