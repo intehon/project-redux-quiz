@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { quiz } from "../reducers/quiz";
+import Buttons from "./Buttons";
 
 export const CurrentQuestion = () => {
   const dispatch = useDispatch();
@@ -9,7 +10,7 @@ export const CurrentQuestion = () => {
   const answers = quizSlice.quiz.answers;
   const question =
     quizSlice.quiz.questions[quizSlice.quiz.currentQuestionIndex];
-  const quizOver = quizSlice.quiz.quizOver;
+  // const quizOver = quizSlice.quiz.quizOver;
 
   console.log("slices", quizSlice);
 
@@ -27,7 +28,7 @@ export const CurrentQuestion = () => {
   // const renderButton = () => {
   //   if (answers.length === question.id) {
   //     return (
-  //       <button onClick={() => dispatch(quiz.actions.goToNextQuestion())}>
+  //       <button  onClick={() => dispatch(quiz.actions.goToNextQuestion())}>
   //         Go to next Question
   //       </button>
   //     );
@@ -58,16 +59,17 @@ export const CurrentQuestion = () => {
           {answer}
         </button>
       ))}
-      {answers.length === question.id && answers.length < 5 && (
+      {/* {answers.length === question.id && answers.length < 5 && (
         <button onClick={() => dispatch(quiz.actions.goToNextQuestion())}>
-          Go to next Question
+          Go to next Questionz
         </button>
       )}
       {answers.length === 5 && (
         <button onClick={() => dispatch(quiz.actions.goToNextQuestion())}>
           Quiz Over
         </button>
-      )}
+      )} */}
+      <Buttons />
     </div>
   );
 };
