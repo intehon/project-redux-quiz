@@ -1,72 +1,49 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-/* eslint-disable no-trailing-spaces */
->>>>>>> f881e27308d536eb4b6bfb9bb378000173547699
-/* eslint-disable linebreak-style */
+/* eslint-disable */
 import { createSlice } from '@reduxjs/toolkit'
-
-const initialState = {
-  questions: [
-<<<<<<< HEAD
-    {
-      id: 1, questionText: 'Who set the Olympic record for the 100m dash in 2012?', options: ['Usain Bolt', 'Justin Gatlin', 'Tyson Gay', 'Asafa Powell'], correctAnswerIndex: 0
-    },
-    {
-      id: 2, questionText: 'When was Michael Phelps last named male World Swimmer of the Year?', options: ['2012', '2014', '2016', '2018'], correctAnswerIndex: 2
-=======
-    { 
-      id: 1, questionText: 'Who set the Olympic record for the 100m dash in 2012?', options: ['Usain Bolt', 'Justin Gatlin', 'Tyson Gay', 'Asafa Powell'], correctAnswerIndex: 0 
-    },
-    { 
-      id: 2, questionText: 'When was Michael Phelps last named male World Swimmer of the Year?', options: ['2012', '2014', '2016', '2018'], correctAnswerIndex: 2 
->>>>>>> f881e27308d536eb4b6bfb9bb378000173547699
-    }
-=======
-import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   questions: [
     {
       id: 1,
       imgUrl:
-        "https://content.active.com/Assets/Active.com+Content+Site+Digital+Assets/Article+Image+Update/Running/How+Far/Carousel.jpg",
-      questionText: "Who set the Olympic record for the 100m dash in 2012?",
-      options: ["Usain Bolt", "Justin Gatlin", "Tyson Gay", "Asafa Powell"],
+        'https://content.active.com/Assets/Active.com+Content+Site+Digital+Assets/Article+Image+Update/Running/How+Far/Carousel.jpg',
+      questionText: 'Who set the Olympic record for the 100m dash in 2012?',
+      options: ['Usain Bolt', 'Justin Gatlin', 'Tyson Gay', 'Asafa Powell'],
       correctAnswerIndex: 0,
-      answerText: "yes, he is fast!",
-      whichQ: "1 / 5",
+      answerText: 'yes, he is fast!',
+      whichQ: '1 / 5',
     },
     {
       id: 2,
+      imgUrl: 'https://www.allabouttrh.com/wp-content/uploads/2020/12/EjMr4zfWsAAI1CP.jpg',
       questionText:
-        "When was Michael Phelps last named male World Swimmer of the Year?",
-      options: ["2012", "2014", "2016", "2017"],
+        'Which Housewives franchise was the first to air in 2006?',
+      options: ['New York', 'Atlanta', 'Orange County', 'Beverly Hills'],
       correctAnswerIndex: 2,
-      whichQ: "2 / 5",
+      whichQ: '2 / 5',
     },
     {
       id: 3,
-      questionText: "Pick the right Ryan? Who is Ryan Reynolds?",
-      options: ["Ryan1", "Ryan2", "Ryan3", "Ryan4"],
+      questionText: 'Pick the right Ryan? Who is Ryan Reynolds?',
+      options: ['Ryan1', 'Ryan2', 'Ryan3', 'Ryan4'],
       correctAnswerIndex: 2,
-      whichQ: "3 / 5",
+      whichQ: '3 / 5',
     },
     {
       id: 4,
-      questionText: "Squidtime! Which one do you choose?",
-      options: ["Umbrella", "Square", "Triangle", "Cirle"],
+      imgUrl: 'https://kbizoom.com/wp-content/uploads/2021/09/squid-game-270921-11-4-780x470.jpg',
+      questionText: 'Squidtime! Which one do you choose?',
+      options: ['Umbrella', 'Square', 'Triangle', 'Cirle'],
       correctAnswerIndex: 2,
-      whichQ: "4 / 5",
+      whichQ: '4 / 5',
     },
     {
       id: 5,
-      questionText: "Which song is this?",
-      options: ["One", "Two", "Three", "Four"],
+      questionText: 'Which song is this?',
+      options: ['One', 'Two', 'Three', 'Four'],
       correctAnswerIndex: 2,
-      whichQ: "5 / 5",
+      whichQ: '5 / 5',
     },
->>>>>>> 7273e77a00420982f143805f5f790de134572a67
   ],
   answers: [],
   currentQuestionIndex: 0,
@@ -76,7 +53,7 @@ const initialState = {
 // Change these to your own questions!
 
 export const quiz = createSlice({
-  name: "quiz",
+  name: 'quiz',
   initialState,
   reducers: {
     /**
@@ -100,7 +77,7 @@ export const quiz = createSlice({
 
       if (!question) {
         throw new Error(
-          "Could not find question! Check to make sure you are passing the question id correctly."
+          'Could not find question! Check to make sure you are passing the question id correctly.'
         );
       }
 
