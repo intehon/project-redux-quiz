@@ -1,21 +1,15 @@
-/* eslint-disable react/button-has-type */
-/* eslint-disable linebreak-style */
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-
 import { quiz } from "../reducers/quiz";
 
 export const CurrentQuestion = () => {
   const dispatch = useDispatch();
-  // const question = useSelector(
-  //   (state) => state.quiz.questions[state.quiz.currentQuestionIndex]
-  // );
-  // const answers = useSelector((state) => state.quiz.answers);
 
   const quizSlice = useSelector((state) => state);
   const answers = quizSlice.quiz.answers;
   const question =
     quizSlice.quiz.questions[quizSlice.quiz.currentQuestionIndex];
+  const quizOver = quizSlice.quiz.quizOver;
 
   console.log("slices", quizSlice);
 
@@ -25,27 +19,53 @@ export const CurrentQuestion = () => {
 
   const onAnswerSubmit = (id, index) => {
     dispatch(quiz.actions.submitAnswer({ questionId: id, answerIndex: index }));
-    question.correctAnswerIndex === index
-      ? alert("You guessed right!")
-      : alert("No its wrong :(");
+    // question.correctAnswerIndex === index;
+    // ? alert("You guessed right!")
+    // : alert("No its wrong :(");
   };
+
+  // const renderButton = () => {
+  //   if (answers.length === question.id) {
+  //     return (
+  //       <button onClick={() => dispatch(quiz.actions.goToNextQuestion())}>
+  //         Go to next Question
+  //       </button>
+  //     );
+  //   } else if (quizSlice.quizOver === true) {
+  //     return <button>Quiz over</button>;
+  //   }
+  // };
 
   return (
     <div>
       <h1>Question: {question.questionText}</h1>
       <img src={question.imgUrl} alt="pic" />
+      <p>{question.whichQ}</p>
       {question.options.map((answer, index) => (
         <button
           key={answer}
+          className={
+            answers.length < question.id
+              ? "noAnswer"
+              : answers.length === question.id &&
+                question.correctAnswerIndex === index
+              ? "correctAnswer"
+              : "wrongAnswer"
+          }
           disabled={answers.length === question.id}
           onClick={(answer) => onAnswerSubmit(question.id, index)}
         >
           {answer}
         </button>
       ))}
-      {answers.length === question.id && (
+      {answers.length === question.id && answers.length < 5 && (
         <button onClick={() => dispatch(quiz.actions.goToNextQuestion())}>
           Go to next Question
+        </button>
+      )}
+      {answers.length === 5 && (
+        <button onClick={() => dispatch(quiz.actions.goToNextQuestion())}>
+          Quiz Over
         </button>
       )}
     </div>

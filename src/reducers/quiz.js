@@ -1,5 +1,3 @@
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable linebreak-style */
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -12,6 +10,7 @@ const initialState = {
       options: ["Usain Bolt", "Justin Gatlin", "Tyson Gay", "Asafa Powell"],
       correctAnswerIndex: 0,
       answerText: "yes, he is fast!",
+      whichQ: "1 / 5",
     },
     {
       id: 2,
@@ -19,24 +18,28 @@ const initialState = {
         "When was Michael Phelps last named male World Swimmer of the Year?",
       options: ["2012", "2014", "2016", "2017"],
       correctAnswerIndex: 2,
+      whichQ: "2 / 5",
     },
     {
       id: 3,
       questionText: "Pick the right Ryan? Who is Ryan Reynolds?",
       options: ["Ryan1", "Ryan2", "Ryan3", "Ryan4"],
       correctAnswerIndex: 2,
+      whichQ: "3 / 5",
     },
     {
       id: 4,
-      questionText: "Which one do you choose?",
+      questionText: "Squidtime! Which one do you choose?",
       options: ["Umbrella", "Square", "Triangle", "Cirle"],
       correctAnswerIndex: 2,
+      whichQ: "4 / 5",
     },
     {
       id: 5,
       questionText: "Which song is this?",
       options: ["One", "Two", "Three", "Four"],
       correctAnswerIndex: 2,
+      whichQ: "5 / 5",
     },
   ],
   answers: [],
