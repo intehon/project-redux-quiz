@@ -14,8 +14,7 @@ export const CurrentQuestion = () => {
   const question =
     quizSlice.quiz.questions[quizSlice.quiz.currentQuestionIndex];
   const quizOver = quizSlice.quiz.quizOver;
-
-  // const quizOver = quizSlice.quiz.quizOver;
+  const quizStart = quizSlice.quiz.quizStart;
 
   console.log("slices", quizSlice);
 
@@ -44,31 +43,32 @@ export const CurrentQuestion = () => {
   if (!quizOver) {
     return (
       <>
-        <FirstPage />
-        <div className="questionBox">
-          <h2>Question:</h2>
-          <h1> {question.questionText}</h1>
-          <img src={question.imgUrl} alt="pic" width="400px" />
-          <p className="qNr">You are on Q nr: {question.whichQ}</p>
-          <div className="answerBox">
-            {question.options.map((answer, index) => (
-              <button
-                key={answer}
-                className={
-                  answers.length < question.id
-                    ? "noAnswer"
-                    : answers.length === question.id &&
-                      question.correctAnswerIndex === index
-                    ? "correctAnswer"
-                    : "wrongAnswer"
-                }
-                disabled={answers.length === question.id}
-                onClick={(answer) => onAnswerSubmit(question.id, index)}
-              >
-                {answer}
-              </button>
-            ))}
-          </div>
+        {quizStart && <FirstPage />}
+        {!quizStart && (
+          <div className="questionBox">
+            <h2>Question:</h2>
+            <h1> {question.questionText}</h1>
+            <img src={question.imgUrl} alt="pic" width="400px" />
+            <p className="qNr">You are on Q nr: {question.whichQ}</p>
+            <div className="answerBox">
+              {question.options.map((answer, index) => (
+                <button
+                  key={answer}
+                  className={
+                    answers.length < question.id
+                      ? "noAnswer"
+                      : answers.length === question.id &&
+                        question.correctAnswerIndex === index
+                      ? "correctAnswer"
+                      : "wrongAnswer"
+                  }
+                  disabled={answers.length === question.id}
+                  onClick={(answer) => onAnswerSubmit(question.id, index)}
+                >
+                  {answer}
+                </button>
+              ))}
+            </div>
           {/* {answers.length === question.id && answers.length < 5 && (
           <button onClick={() => dispatch(quiz.actions.goToNextQuestion())}>
             Go to next Questionz
@@ -80,7 +80,8 @@ export const CurrentQuestion = () => {
           </button>
         )} */}
           <Buttons />
-        </div>
+          </div>
+        )}
       </>
     );
   }

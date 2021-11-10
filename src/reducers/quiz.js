@@ -50,6 +50,7 @@ const initialState = {
   answers: [],
   currentQuestionIndex: 0,
   quizOver: false,
+  quizStart: true,
 };
 
 // Change these to your own questions!
@@ -123,5 +124,9 @@ export const quiz = createSlice({
     restart: () => {
       return initialState;
     },
+
+    start: (state) => {
+      state.quizStart = false
+    }
   },
 });

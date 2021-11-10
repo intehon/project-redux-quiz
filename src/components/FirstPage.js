@@ -11,7 +11,7 @@ const FirstPage = () => {
       <h3>What do you know about popular culture?</h3>
       <button
         className="restart-btn"
-        onClick={() => dispatch(quiz.actions.restart())}
+        onClick={() => dispatch(quiz.actions.start())}
       >
         Lets play!
       </button>
