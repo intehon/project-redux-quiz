@@ -18,6 +18,7 @@ const ButtonStyle = styled.div`
 
   button:hover {
     color: white;
+    cursor: pointer;
   }
 `;
 

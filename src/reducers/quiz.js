@@ -1,48 +1,50 @@
 /* eslint-disable */
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   questions: [
     {
       id: 1,
       imgUrl:
-        'https://content.active.com/Assets/Active.com+Content+Site+Digital+Assets/Article+Image+Update/Running/How+Far/Carousel.jpg',
-      questionText: 'Who set the Olympic record for the 100m dash in 2012?',
-      options: ['Usain Bolt', 'Justin Gatlin', 'Tyson Gay', 'Asafa Powell'],
+        "https://content.active.com/Assets/Active.com+Content+Site+Digital+Assets/Article+Image+Update/Running/How+Far/Carousel.jpg",
+      questionText: "Who set the Olympic record for the 100m dash in 2012?",
+      options: ["Usain Bolt", "Justin Gatlin", "Tyson Gay", "Asafa Powell"],
       correctAnswerIndex: 0,
-      answerText: 'yes, he is fast!',
-      whichQ: '1 / 5',
+      answerText: "yes, he is fast!",
+      whichQ: "1/5",
     },
     {
       id: 2,
-      imgUrl: 'https://www.allabouttrh.com/wp-content/uploads/2020/12/EjMr4zfWsAAI1CP.jpg',
-      questionText:
-        'Which Housewives franchise was the first to air in 2006?',
-      options: ['New York', 'Atlanta', 'Orange County', 'Beverly Hills'],
+      imgUrl:
+        "https://www.allabouttrh.com/wp-content/uploads/2020/12/EjMr4zfWsAAI1CP.jpg",
+      questionText: "Which Housewives franchise was the first to air in 2006?",
+      options: ["New York", "Atlanta", "Orange County", "Beverly Hills"],
       correctAnswerIndex: 2,
-      whichQ: '2 / 5',
+      whichQ: "2/5",
     },
     {
       id: 3,
-      questionText: 'Pick the right Ryan? Who is Ryan Reynolds?',
-      options: ['Ryan1', 'Ryan2', 'Ryan3', 'Ryan4'],
-      correctAnswerIndex: 2,
-      whichQ: '3 / 5',
+      questionText: "Pick the right Ryan? Who is Ryan Reynolds?",
+      options: ["Ryan1", "Ryan2", "Ryan3", "Ryan4"],
+      correctAnswerIndex: 3,
+      whichQ: "3/5",
     },
     {
       id: 4,
-      imgUrl: 'https://kbizoom.com/wp-content/uploads/2021/09/squid-game-270921-11-4-780x470.jpg',
-      questionText: 'Squidtime! Which one do you choose?',
-      options: ['Umbrella', 'Square', 'Triangle', 'Cirle'],
+      imgUrl:
+        "https://i.etsystatic.com/21146347/r/il/5310da/3424626039/il_340x270.3424626039_kq8p.jpg",
+      questionText: "Squidtime! Which one do you choose?",
+      options: ["Umbrella", "Square", "Triangle", "Cirle"],
       correctAnswerIndex: 2,
-      whichQ: '4 / 5',
+      whichQ: "4/5",
     },
     {
       id: 5,
-      questionText: 'Which song is this?',
-      options: ['One', 'Two', 'Three', 'Four'],
-      correctAnswerIndex: 2,
-      whichQ: '5 / 5',
+      imgUrl: "https://pbs.twimg.com/media/DVq4s6EW0AA4Q3a.jpg",
+      questionText: "Which bear is this?",
+      options: ["Care bear", "Winnie the Pooh", "Björne", "Paddington"],
+      correctAnswerIndex: 0,
+      whichQ: "5/5",
     },
   ],
   answers: [],
@@ -53,7 +55,7 @@ const initialState = {
 // Change these to your own questions!
 
 export const quiz = createSlice({
-  name: 'quiz',
+  name: "quiz",
   initialState,
   reducers: {
     /**
@@ -77,7 +79,7 @@ export const quiz = createSlice({
 
       if (!question) {
         throw new Error(
-          'Could not find question! Check to make sure you are passing the question id correctly.'
+          "Could not find question! Check to make sure you are passing the question id correctly."
         );
       }
 
