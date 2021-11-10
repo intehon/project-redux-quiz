@@ -1,4 +1,6 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable import/named */
+/* eslint-disable linebreak-style */
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 

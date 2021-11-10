@@ -1,13 +1,25 @@
+<<<<<<< HEAD
+=======
+/* eslint-disable no-trailing-spaces */
+>>>>>>> f881e27308d536eb4b6bfb9bb378000173547699
 /* eslint-disable linebreak-style */
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   questions: [
+<<<<<<< HEAD
     {
       id: 1, questionText: 'Who set the Olympic record for the 100m dash in 2012?', options: ['Usain Bolt', 'Justin Gatlin', 'Tyson Gay', 'Asafa Powell'], correctAnswerIndex: 0
     },
     {
       id: 2, questionText: 'When was Michael Phelps last named male World Swimmer of the Year?', options: ['2012', '2014', '2016', '2018'], correctAnswerIndex: 2
+=======
+    { 
+      id: 1, questionText: 'Who set the Olympic record for the 100m dash in 2012?', options: ['Usain Bolt', 'Justin Gatlin', 'Tyson Gay', 'Asafa Powell'], correctAnswerIndex: 0 
+    },
+    { 
+      id: 2, questionText: 'When was Michael Phelps last named male World Swimmer of the Year?', options: ['2012', '2014', '2016', '2018'], correctAnswerIndex: 2 
+>>>>>>> f881e27308d536eb4b6bfb9bb378000173547699
     }
   ],
   answers: [],
