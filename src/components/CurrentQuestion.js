@@ -43,7 +43,9 @@ export const CurrentQuestion = () => {
   if (!quizOver) {
     return (
       <>
+        {/* If the initial state quizStart is true, render component FirstPage */}
         {quizStart && <FirstPage />}
+        {/* If the initial state quizStart is false, render the first question*/}
         {!quizStart && (
           <div className="questionBox">
             <h2>Question:</h2>

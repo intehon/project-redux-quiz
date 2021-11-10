@@ -125,6 +125,9 @@ export const quiz = createSlice({
       return initialState;
     },
 
+    /**
+     * Use this action to progress from the starting-page of the quiz (action added by team elephants group 1, not part of the starting code)
+     */
     start: (state) => {
       state.quizStart = false
     }
