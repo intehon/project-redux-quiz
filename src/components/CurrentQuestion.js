@@ -7,12 +7,16 @@ import { quiz } from "../reducers/quiz";
 
 export const CurrentQuestion = () => {
   const dispatch = useDispatch();
-  const question = useSelector(
-    (store) => store.quiz.questions[store.quiz.currentQuestionIndex]
-  );
-  const answers = useSelector((store) => store.quiz.answers);
+  // const question = useSelector(
+  //   (state) => state.quiz.questions[state.quiz.currentQuestionIndex]
+  // );
+  // const answers = useSelector((state) => state.quiz.answers);
 
-  const quizSlice = useSelector((store) => store);
+  const quizSlice = useSelector((state) => state);
+  const answers = quizSlice.quiz.answers;
+  const question =
+    quizSlice.quiz.questions[quizSlice.quiz.currentQuestionIndex];
+
   console.log("slices", quizSlice);
 
   if (!question) {
@@ -21,6 +25,9 @@ export const CurrentQuestion = () => {
 
   const onAnswerSubmit = (id, index) => {
     dispatch(quiz.actions.submitAnswer({ questionId: id, answerIndex: index }));
+    question.correctAnswerIndex === index
+      ? alert("You guessed right!")
+      : alert("No its wrong :(");
   };
 
   return (
