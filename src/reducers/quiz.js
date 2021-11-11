@@ -12,6 +12,7 @@ const initialState = {
       correctAnswerIndex: 0,
       answerText: "yes, he is fast!",
       whichQ: "1/5",
+      progress: "0%",
     },
     {
       id: 2,
@@ -21,6 +22,7 @@ const initialState = {
       options: ["New York", "Atlanta", "Orange County", "Beverly Hills"],
       correctAnswerIndex: 2,
       whichQ: "2/5",
+      progress: "20%",
     },
     {
       id: 3,
@@ -28,6 +30,7 @@ const initialState = {
       options: ["Ryan1", "Ryan2", "Ryan3", "Ryan4"],
       correctAnswerIndex: 3,
       whichQ: "3/5",
+      progress: "40%",
     },
     {
       id: 4,
@@ -37,6 +40,7 @@ const initialState = {
       options: ["Umbrella", "Square", "Triangle", "Cirle"],
       correctAnswerIndex: 2,
       whichQ: "4/5",
+      progress: "60%",
     },
     {
       id: 5,
@@ -45,6 +49,7 @@ const initialState = {
       options: ["Care bear", "Winnie the Pooh", "Björne", "Paddington"],
       correctAnswerIndex: 0,
       whichQ: "5/5",
+      progress: "80%",
     },
   ],
   answers: [],

@@ -5,6 +5,7 @@ import Summary from "./Summary";
 import { quiz } from "../reducers/quiz";
 import Buttons from "./Buttons";
 import FirstPage from "./FirstPage";
+import { ProgressBar } from "./ProgressBar";
 
 export const CurrentQuestion = () => {
   const dispatch = useDispatch();
@@ -80,6 +81,7 @@ export const CurrentQuestion = () => {
           </button>
         )} */}
           <Buttons />
+          <ProgressBar />
         </div>
       </>
     );
