@@ -5,6 +5,7 @@ import Summary from "./Summary";
 import { quiz } from "../reducers/quiz";
 import Buttons from "./Buttons";
 import FirstPage from "./FirstPage";
+import { ProgressBar } from "./ProgressBar";
 
 export const CurrentQuestion = () => {
   const dispatch = useDispatch();
@@ -73,7 +74,7 @@ export const CurrentQuestion = () => {
             </div>
           {/* {answers.length === question.id && answers.length < 5 && (
           <button onClick={() => dispatch(quiz.actions.goToNextQuestion())}>
-            Go to next Questionz
+            Go to next Question
           </button>
         )}
         {answers.length === 5 && (
@@ -82,6 +83,7 @@ export const CurrentQuestion = () => {
           </button>
         )} */}
           <Buttons />
+          <ProgressBar />
           </div>
         )}
       </>

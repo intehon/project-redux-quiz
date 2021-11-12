@@ -1,32 +1,20 @@
 /* eslint-disable*/
 
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-
-const dispatch = useDispatch();
-const question = useSelector(
-  (state) => state.quiz.questions[quizSlice.quiz.currentQuestionIndex]
-);
+import { useSelector } from "react-redux";
 
 export const ProgressBar = () => {
-  const Bar = () =>
-    questions !== undefined &&
-    questions.map((question, i) => {
-      if (i > 0) {
-        return (
-          <div
-            key={question}
-            className="bar"
-            style={{ width: 100 / state.questions - 1 + "%" }}
-          ></div>
-        );
-      }
-      return null;
-    });
+  const quizSlice = useSelector(state => state);
+  const question =
+    quizSlice.quiz.questions[quizSlice.quiz.currentQuestionIndex];
+  const questions = quizSlice.quiz.questions
+  const currentQuestion = quizSlice.quiz.currentQuestionIndex
+
 
   return (
     <div className="progress">
-      <Bar />
+      <progress className="progress-bar" value={currentQuestion} max={questions.length} />
+      <p>{question.progress}</p>
     </div>
   );
 };
