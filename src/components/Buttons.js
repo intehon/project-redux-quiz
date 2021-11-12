@@ -1,9 +1,9 @@
 /* eslint-disable*/
 
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { quiz } from "../reducers/quiz";
-import styled from "styled-components";
+import React from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { quiz } from "../reducers/quiz"
+import styled from "styled-components"
 
 const ButtonStyle = styled.div`
   padding: 20px;
@@ -23,12 +23,12 @@ const ButtonStyle = styled.div`
 `;
 
 const Buttons = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
-  const quizSlice = useSelector((state) => state);
-  const answers = quizSlice.quiz.answers;
+  const quizSlice = useSelector((state) => state)
+  const answers = quizSlice.quiz.answers
   const question =
-    quizSlice.quiz.questions[quizSlice.quiz.currentQuestionIndex];
+    quizSlice.quiz.questions[quizSlice.quiz.currentQuestionIndex]
 
   return (
     <ButtonStyle>
@@ -46,4 +46,4 @@ const Buttons = () => {
   );
 };
 
-export default Buttons;
+export default Buttons

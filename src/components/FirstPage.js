@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { quiz } from "reducers/quiz";
 
 const FirstPage = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   return (
     <div className="firstPageBox">
@@ -20,4 +20,4 @@ const FirstPage = () => {
   );
 };
 
-export default FirstPage;
+export default FirstPage

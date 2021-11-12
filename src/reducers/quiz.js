@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
   questions: [
@@ -71,8 +71,8 @@ export const quiz = createSlice({
      * and `answerIndex` keys. See the readme for more details.
      */
     submitAnswer: (state, action) => {
-      const { questionId, answerIndex } = action.payload;
-      const question = state.questions.find((q) => q.id === questionId);
+      const { questionId, answerIndex } = action.payload
+      const question = state.questions.find((q) => q.id === questionId)
 
       if (!question) {
         throw new Error(
@@ -104,9 +104,9 @@ export const quiz = createSlice({
      */
     goToNextQuestion: (state) => {
       if (state.currentQuestionIndex + 1 === state.questions.length) {
-        state.quizOver = true;
+        state.quizOver = true
       } else {
-        state.currentQuestionIndex += 1;
+        state.currentQuestionIndex += 1
       }
     },
 
@@ -118,7 +118,7 @@ export const quiz = createSlice({
      * This action does not require a payload.
      */
     restart: () => {
-      return initialState;
+      return initialState
     },
 
     /**
