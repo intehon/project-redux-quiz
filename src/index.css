@@ -25,6 +25,11 @@ code {
   width: auto;
 }
 
+.firstPageBox h3 {
+  color: rgb(249, 112, 205);
+  font-style: italic;
+}
+
 .questionBox h1 {
   color: rgb(113, 47, 174);
   margin-top: 0;
@@ -57,11 +62,11 @@ code {
 }
 
 .correctAnswer {
-  background: green;
+  background: rgb(126, 237, 126);
 }
 
 .wrongAnswer {
-  background: red;
+  background: rgb(245, 109, 109);
 }
 
 .noAnswer {
@@ -77,4 +82,8 @@ code {
   font-weight: bold;
   background: pink;
   cursor: pointer;
+}
+
+.restart-btn:hover {
+  color: white;
 }

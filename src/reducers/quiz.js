@@ -34,7 +34,7 @@ const initialState = {
       imgUrl:
         "https://i.etsystatic.com/21146347/r/il/5310da/3424626039/il_340x270.3424626039_kq8p.jpg",
       questionText: "Squidtime! Which one do you choose?",
-      options: ["Umbrella", "Square", "Triangle", "Cirle"],
+      options: ["Circle", "Triangle", "Star", "Umbrella"],
       correctAnswerIndex: 2,
       whichQ: "4/5",
     },

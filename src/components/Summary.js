@@ -12,6 +12,8 @@ const Summary = () => {
     return answers.isCorrect === true;
   });
 
+  console.log(answerId)
+
   return (
     <div className="summary">
       <p>You got {correctAnswer.length} out of 5!</p>
