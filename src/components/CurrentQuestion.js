@@ -13,21 +13,18 @@ export const CurrentQuestion = () => {
   // is it better to always call useSelector for each, to avoid updating every const every time something happens? (add this to stackoverflow)
   const quizSlice = useSelector((state) => state)
   const answers = quizSlice.quiz.answers
-  const question =
-    quizSlice.quiz.questions[quizSlice.quiz.currentQuestionIndex]
+  const question = quizSlice.quiz.questions[quizSlice.quiz.currentQuestionIndex]
   const quizOver = quizSlice.quiz.quizOver
   const quizStart = quizSlice.quiz.quizStart
 
-  const classNameButton = (answers_length, question_id, question_correctAnswerIndex, index) => {
-    if(answers_length < question_id) {
-      return "noAnswer"
-    } else if (answers_length === question_id && question_correctAnswerIndex === index ) {
-      return "correctAnswer"
-    } else {
-      return "wrongAnswer"
+  const classNameButton = (answer, question_id, question_correctAnswerIndex, index) => {
+    if(answers[question_id-1]?.answer === answer) {
+      if (answers.length === question_id && question_correctAnswerIndex === index ) {
+        return "correctAnswer"
+      } else return "wrongAnswer"
     }
+    else return "noAnswer"
   }
-  
 
   if (!question) {
     return <h1>Oh no! I could not find the current question!</h1>
@@ -37,35 +34,29 @@ export const CurrentQuestion = () => {
     dispatch(quiz.actions.submitAnswer({ questionId: id, answerIndex: index, question_correctAnswerIndex: correctAnswer }))
   };
 
-  if (!quizOver) {
+  if (!quizOver && !quizStart) {
     return (
       <>
-        {/* If the initial state quizStart is true, render component FirstPage */}
-        {quizStart && <FirstPage />}
-        {/* If the initial state quizStart is false, render the first question*/}
-        {!quizStart && (
-          <div className="questionBox">
-            <h2>Question:</h2>
-            <h1> {question.questionText}</h1>
-            <img src={question.imgUrl} alt="pic" width="400px" />
-            <div className="answerBox">
-              {question.options.map((answer, index) => (
-                <button
-                  key={answer}
-                  className={classNameButton(answers.length, question.id, question.correctAnswerIndex, index)}
-                  disabled={answers.length === question.id}
-                  onClick={() => onAnswerSubmit(question.id, index)}
-                >
-                  {answer}
-                </button>
-              ))}
-            </div>
-          <Buttons />
-          <ProgressBar />
+        <div className="questionBox">
+          <h2>Question:</h2>
+          <h1> {question.questionText}</h1>
+          <img src={question.imgUrl} alt="pic" width="400px" />
+          <div className="answerBox">
+            {question.options.map((answer, index) => (
+              <button
+                key={answer}
+                className={classNameButton(answer, question.id, question.correctAnswerIndex, index)}
+                disabled={answers.length === question.id}
+                onClick={() => onAnswerSubmit(question.id, index)}
+              >
+                {answer}
+              </button>
+            ))}
           </div>
-        )}
+        <Buttons />
+        <ProgressBar />
+        </div>
       </>
     )
-  }
-  return <Summary />
+  } else return null
 };

@@ -19,13 +19,15 @@ code {
 .questionBox,
 .summary,
 .firstPageBox {
-  margin: 20px auto;
+  margin: 10px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   background: rgb(247, 236, 236);
   border-radius: 20px;
-  min-width: 100vw;
+  min-width: 80vw;
+  max-height: fit-content;
   padding: 20px;
 }
 
@@ -92,6 +94,14 @@ code {
 
 .restart-btn:hover {
   color: white;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
 }
 
 progress {

@@ -14,15 +14,14 @@ const initialState = {
     },
     {
       id: 2,
-      imgUrl:
-        "https://www.allabouttrh.com/wp-content/uploads/2020/12/EjMr4zfWsAAI1CP.jpg",
+      imgUrl: "./pictures/housewives.jpg",
       questionText: "Which Housewives franchise was the first to air in 2006?",
-      options: ["New York", "Atlanta", "Orange County", "Beverly Hills"],
+      options: ["New York", "Atlanta", "Orange County", "New Jersey"],
       correctAnswerIndex: 2,
     },
     {
       id: 3,
-      imgUrl: "./pictures/ryans.PNG",
+      imgUrl: "./pictures/ryans.png",
       questionText: "Pick the right Ryan? Who is Ryan Reynolds?",
       options: ["Ryan 1", "Ryan 2", "Ryan 3", "Ryan 4"],
       correctAnswerIndex: 2,
@@ -37,7 +36,7 @@ const initialState = {
     },
     {
       id: 5,
-      imgUrl: "https://pbs.twimg.com/media/DVq4s6EW0AA4Q3a.jpg",
+      imgUrl: "./pictures/free-hugs.png",
       questionText: "Which bear is this?",
       options: ["Care bear", "Winnie the Pooh", "Björne", "Paddington"],
       correctAnswerIndex: 0,
