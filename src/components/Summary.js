@@ -12,10 +12,18 @@ const Summary = () => {
     return answers.isCorrect === true;
   });
 
+  console.log(answers)
+
   return (
     <div className="summary">
       <p>You got {correctAnswer.length} out of 5!</p>
-      
+      <h4>Your answers/ correct answer:</h4>
+      {/* ev mappa här över arrayen av svar */}
+      <p> Question 1: </p>
+      <p> Question 2: </p>
+      <p> Question 3: </p>
+      <p> Question 4: </p>
+      <p> Question 5: </p>
       <button
         className="restart-btn"
         onClick={() => dispatch(quiz.actions.restart())}

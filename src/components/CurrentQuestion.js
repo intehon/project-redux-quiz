@@ -10,6 +10,7 @@ import { ProgressBar } from "./ProgressBar";
 export const CurrentQuestion = () => {
   const dispatch = useDispatch();
 
+  // is it better to always call useSelector for each, to avoid updating every const every time something happens? (add this to stackoverflow)
   const quizSlice = useSelector((state) => state);
   const answers = quizSlice.quiz.answers;
   const question =
@@ -52,12 +53,12 @@ export const CurrentQuestion = () => {
             <h2>Question:</h2>
             <h1> {question.questionText}</h1>
             <img src={question.imgUrl} alt="pic" width="400px" />
-            <p className="qNr">You are on Q nr: {question.whichQ}</p>
             <div className="answerBox">
               {question.options.map((answer, index) => (
                 <button
                   key={answer}
-                  className={
+                  className={ 
+                    // take out functions if they are more than 1 row
                     answers.length < question.id
                       ? "noAnswer"
                       : answers.length === question.id &&
